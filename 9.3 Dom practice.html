@@ -1,0 +1,58 @@
+<p>Youtube subscribe button</p>
+<button class="js-subscribe-button-1" onclick="
+    document.querySelector('.js-subscribe-button-1').innerText='Subscribed';">
+    Subscribe
+</button>
+<button class="js-subscribe-button-2" onclick="
+    let button = document.querySelector('.js-subscribe-button-2');
+    if (button.innerText==='Subscribe')
+        button.innerText='Subscribed';
+    else
+        button.innerText='Subscribe';">
+    Subscribe
+</button>
+
+
+<p>Amazon cost calculator :</p>
+<input class='js-inputbox' placeholder="Cost of products">
+<button onclick="
+    //input elements don't have inner html 
+    //so we use value property to grab the input text 
+    //convert the input text to number for doing math
+    cost = Number(document.querySelector('.js-inputbox').value);
+    if (cost) { //runs when input cost is a valid number
+    document.querySelector('.js-every-cost').innerText += (document.querySelector('.js-total-msg').innerText?'+':'') + cost;
+    //using ternary operator-> when total=0 dont add + sign in front
+    total = total + cost;
+    document.querySelector('.js-total-msg').innerText=` = $${total}`;
+    //resets the inputbox after an input
+    document.querySelector('.js-inputbox').value =''; }">
+    Calculate
+</button>
+
+
+<p>Press Enter to calculate :</p>
+<input class="js-inputbox-enter" onkeydown="
+    //inside keydown or other event listeners 
+    //javascript generates an object named event
+    //console.log(event);
+    if (event.key === 'Enter') {
+        cost = Number(document.querySelector('.js-inputbox-enter').value);
+        if (cost) {
+            document.querySelector('.js-every-cost').innerText += (document.querySelector('.js-total-msg').innerText?'+':'') + cost;
+            //using ternary operator: when total is zero dont add + sign in front added cost
+            total = total + cost;
+            document.querySelector('.js-total-msg').innerText = ` = $${total}`;
+            document.querySelector('.js-inputbox-enter').value = ''; 
+        }}">   
+
+<p>
+<span class="js-every-cost"></span>
+<span class="js-total-msg"></span>
+</p>
+
+<script> 
+let total = 0; 
+</script>
+
+<!--instead of writing so much code in onclick. make subscribe() calculate() functions-->

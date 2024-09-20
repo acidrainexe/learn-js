@@ -1,0 +1,116 @@
+<button onclick="
+    myInput = 'rock';
+    playGame(myInput);
+    ">Rock</button>
+
+<button onclick="
+    //myInput ='paper';
+    //no need for extra variable
+    playGame('paper');
+    ">Paper</button>
+
+<button onclick="
+    myInput ='scissor';
+    playGame(myInput);
+    ">Scissor</button>
+
+<button onclick="
+    score.wins =0;
+    score.losses =0;
+    score.draws =0;
+    alert('scores has been reset');
+    ">Reset score</button>
+
+
+<script>
+    let myInput;
+
+    const score = {
+    wins : 0,
+    losses :0,
+    draws : 0,
+    }
+
+    function computerMove() {
+        let move;
+        let x = Math.random();
+        if (x <= 0.33)
+            move = "rock";
+        else if (x <= 0.66)
+            move = "paper";
+        else
+            move = "scissor";
+        return move;
+    }
+
+    function playGame(button) {
+        let result;
+        deviceTurn = computerMove();
+
+        if (button === "rock"){
+            if(deviceTurn === "rock"){
+                result = 'draw';
+                // updateScore(result);
+                // alert(`Draw! Computer chose rock\n Wins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+            }
+            else if (deviceTurn === "paper"){
+                result = 'lost';
+                // updateScore(result);
+                // alert(`Lost! Computer chose paper\nWins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+            }
+            else {
+                result = 'win';
+                // updateScore(result);
+                // alert(`Win! Computer chose scissor\nWins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+            }
+        }    
+        else if(button === "paper"){
+            if(deviceTurn === "rock"){
+                result = 'win';
+                // updateScore(result);
+                // alert(`Win! Computer chose rock\nWins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+            }
+            else if (deviceTurn === "paper"){
+                result = 'draw';
+                // updateScore(result);
+                // alert(`Draw! Computer chose paper\nWins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+            }
+            else {
+                result = 'lost'
+                // updateScore(result);
+                // alert(`Lost! Computer chose scissor\nWins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+            }
+        }
+        else{
+            if(deviceTurn === "rock"){
+                result ='lost';
+                // updateScore(result);
+                // alert(`Lost! Computer chose rock\nWins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+            }
+            else if (deviceTurn === "paper"){
+                result = 'win';
+                // updateScore(result);
+                // alert(`Win! Computer chose paper\nWins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+            }
+            else {
+                result = 'draw'
+                // updateScore(result);
+                // alert(`Draw! Computer chose scissor\nWins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+            } 
+        }
+        //instead of updating scores and showing results each time, 
+        //separate the algorithmic steps to update score and show result
+        //this reduces the repetition of code and keeps to flow clean  
+        updateScore(result);
+        alert(`Lost! Computer chose paper\nWins:${score.wins} Losses:${score.losses} Draws:${score.draws}`);
+    }
+ 
+    function updateScore(result){
+        if (result==='win')
+            score.wins++;
+        else if (result==='lost')
+            score.losses++;
+        else
+            score.draws++;
+    }
+</script>

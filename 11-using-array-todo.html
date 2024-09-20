@@ -1,0 +1,18 @@
+<p>Making a Todo List</p>
+<input class="js-inputbox" placeholder="Add task">
+<button onclick="
+    addTask();">Add</button>
+
+
+<script>
+    task = [];
+
+    function addTask() {
+        const addedTask = document.querySelector('.js-inputbox').value;
+        task.push(addedTask);
+        console.log(task);
+        // to empty the inputbox after adding written task
+        document.querySelector('.js-inputbox').value ='';
+    }
+
+</script>

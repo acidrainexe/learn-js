@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Today's Task List</p>
+    <input type="text" placeholder="Add tasks" class="js-input-task" onkeydown="
+        if(event.key==='Enter'){
+            addTask();
+            showTask();}">
+
+    <button onclick="
+        addTask();
+        showTask();">Add</button> 
+
+    <div class="js-output-task"></div>
+</body>
+
+<script>
+    let myTasks =[];   
+    function addTask(){
+        let taskInput = document.querySelector('.js-input-task');
+        myTasks.push(taskInput.value);
+        //console.log(myTasks);
+        taskInput.value='';
+    }
+
+    function showTask(){
+        let html ='';
+        //console.log(myTasks);
+        for(index=0;index<myTasks.length;index++){
+            html = html + `<p>${myTasks[index]}</p>`;}
+
+        document.querySelector('.js-output-task').innerHTML = html;
+    }
+</script>
+</html>

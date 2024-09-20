@@ -1,0 +1,55 @@
+<button onclick="
+    playGame('rock');">
+    Rock
+</button>
+<button onclick="
+    playGame('paper');">
+    Paper
+</button>
+<button onclick="
+    playGame('scissor');">
+    Scissor
+</button>
+
+<script>
+    function pickComputerMove() {
+        let x = Math.random();
+        if (x < 1/3) 
+            return 'rock'; 
+        else if (x < 2/3) 
+            return 'paper'; 
+        else 
+            return 'scissor'; 
+        }
+    
+    function playGame(myMove) {
+        let computerMove = pickComputerMove();
+        let result = '';
+
+        if (myMove === 'rock') {
+            if (computerMove === 'rock') 
+                result = 'Draw'; 
+            else if (computerMove === 'paper') 
+                result = 'Lost';  
+            else
+                result = 'Win';
+        }
+        else if (myMove==='paper') {
+            if (computerMove === 'rock') 
+                result = 'Win'; 
+            else if (computerMove === 'paper') 
+                result = 'Draw'; 
+            else 
+                result = 'Lost'; 
+        }
+        else {
+            if (computerMove === 'rock') 
+                result = 'Lost';  
+            else if (computerMove === 'paper') 
+                result = 'Win'; 
+            else 
+                result = 'Draw';
+        }
+        alert(`Computer chose ${computerMove}. ${result}!!!`); 
+    }
+</script>

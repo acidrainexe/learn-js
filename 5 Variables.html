@@ -1,0 +1,27 @@
+<button onclick="
+    alert(`Cart quantity = ${cart_quantity}`);">
+    Show quantity
+</button>
+
+<button onclick="
+    cart_quantity++;
+    console.log(`Cart quantity = ${cart_quantity}`);">
+    Add to cart
+</button>
+
+<button onclick="
+    cart_quantity += 2;
+    console.log(`Cart quantity = ${cart_quantity}`);">
+    +2
+</button>
+
+<button onclick="
+    cart_quantity = 0;
+    console.log('Cart being reset...');
+    console.log(`Cart quantity = ${cart_quantity}`);">
+    Reset Cart
+</button>
+
+<script>
+    let cart_quantity = 0;
+</script>

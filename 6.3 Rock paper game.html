@@ -1,0 +1,70 @@
+<button onclick="
+    //1.computer picks a move
+    x = Math.random();
+    if (x < 1/3) 
+        computerMove = 'rock';
+    else if (x < 2/3)
+        computerMove = 'paper';
+    else 
+        computerMove = 'scissor';
+
+    //2.compares the result
+    if (computerMove === 'rock') 
+        result = 'Draw';
+    else if (computerMove === 'paper')
+        result = 'Lost';
+    else
+        result = 'Win';
+
+    //3.displays the result
+    alert(`Computer chose ${computerMove}. ${result}!!!`)"
+    >Rock
+</button>
+
+<button onclick="
+    //1.computer picks a move
+    x = Math.random();
+    if (x < 1/3)
+        computerMove = 'rock';
+    else if (x < 2/3) 
+        computerMove = 'paper'; 
+    else 
+        computerMove = 'scissor';
+
+    //2.compares and shows the result
+    //combining algorithmic steps
+    if (computerMove === 'rock')
+        alert(`Computer chose ${computerMove}. Win!!!`);
+    else if (computerMove === 'paper')
+        alert(`Computer chose ${computerMove}. Draw!!!`);
+    else 
+        alert(`Computer chose ${computerMove}. Lost!!!`);"
+    >Paper
+</button>
+
+<button onclick="
+    //1.computer picks a move
+    x = Math.random();
+    if (x < 1/3)
+        computerMove = 'rock';
+    else if (x < 2/3)
+        computerMove = 'paper';
+    else
+        computerMove = 'scissor';
+
+    //2.compares and shows the result
+    if (computerMove === 'rock') 
+        alert(`Lost!!! Computer chose Rock`);
+    else if (computerMove === 'paper') 
+        alert(`Win!!! Computer chose Rock`); 
+    else 
+        alert(`Draw!!! Computer chose Rock`);"
+    >Scissor
+</button>
+
+<script>
+    //instead of redeclaring them for evey button
+    let x = 0;
+    let result ='';
+    let computerMove = '';
+</script>
